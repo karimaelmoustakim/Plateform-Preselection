@@ -9,9 +9,10 @@
         <option value="$PROJECT_DIR$/gateway-service/pom.xml" />
         <option value="$PROJECT_DIR$/Application/pom.xml" />
         <option value="$PROJECT_DIR$/RH/pom.xml" />
+        <option value="$PROJECT_DIR$/interviewers/pom.xml" />
+        <option value="$PROJECT_DIR$/display-service/pom.xml" />
       </list>
     </option>
-    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

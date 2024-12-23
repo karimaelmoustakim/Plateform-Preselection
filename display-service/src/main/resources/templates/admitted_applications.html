@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Candidatures Admis</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Candidatures Admis</h1>
+
+<div th:if="${error}">
+  <p th:text="${error}" style="color: red;"></p>
+</div>
+
+<div th:if="${admittedApps}">
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom du Candidat</th>
+      <th>Poste Appliqué</th>
+      <th>Expérience (années)</th>
+      <th>Niveau d'Éducation</th>
+      <th>Status</th>
+      <th>Date de Candidature</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="app : ${admittedApps}">
+      <td th:text="${app.id}">1</td>
+      <td th:text="${app.candidateName}">John Doe</td>
+      <td th:text="${app.positionApplied}">Développeur</td>
+      <td th:text="${app.experience}">5</td>
+      <td th:text="${app.educationLevel}">Master</td>
+      <td th:text="${app.status}">Admis</td>
+      <td th:text="${app.applicationDate}">2024-01-01</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<a href="/">Retour à l'Accueil</a>
+</body>
+</html>

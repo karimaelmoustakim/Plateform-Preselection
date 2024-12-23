@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Candidatures</title>
+    <!-- Dans les templates, remplacez les liens CSS et JS par : -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h1>Liste des Candidatures</h1>
+
+    <!-- Messages de Succès ou d'Erreur -->
+    <div th:if="${error}">
+        <div class="alert alert-danger" th:text="${error}"></div>
+    </div>
+    <div th:if="${success}">
+        <div class="alert alert-success" th:text="${success}"></div>
+    </div>
+
+    <!-- Lien pour Créer une Nouvelle Candidature -->
+    <a th:href="@{/applications/new}" class="btn btn-primary mb-3">Créer une Nouvelle Candidature</a>
+
+    <!-- Bouton pour Déclencher les Prédictions -->
+    <form th:action="@{/applications/predict}" method="get" class="mb-3">
+        <button type="submit" class="btn btn-warning">Déclencher les Prédictions</button>
+    </form>
+
+    <!-- Tableau des Candidatures -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom du Candidat</th>
+            <th>Poste Appliqué</th>
+            <th>Expérience (années)</th>
+            <th>Niveau d'Éducation</th>
+            <th>Status</th>
+            <th>Date de Candidature</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="app : ${apps}">
+            <td th:text="${app.id}">1</td>
+            <td th:text="${app.candidateName}">John Doe</td>
+            <td th:text="${app.positionApplied}">Développeur</td>
+            <td th:text="${app.experience}">5</td>
+            <td th:text="${app.educationLevel}">Master</td>
+            <td th:text="${app.status}">Admis</td>
+            <td th:text="${app.applicationDate}">2024-01-01</td>
+            <td>
+                <a th:href="@{'/applications/edit/' + ${app.id}}" class="btn btn-sm btn-info">Modifier</a>
+                <a th:href="@{'/applications/delete/' + ${app.id}}" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette candidature ?');">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Liens de Navigation -->
+    <a href="/" class="btn btn-secondary">Retour à l'Accueil</a>
+</div>
+
+<!-- Optionnel : Intégrer Bootstrap JS -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

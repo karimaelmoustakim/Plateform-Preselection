@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Interviews (RH)</title>
+</head>
+<body>
+<h1>Liste des Interviews (RH)</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Candidate ID</th>
+        <th>Date de l'Entretien</th>
+        <th>Lien de l'Entretien</th>
+        <th>Interviewer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="iv : ${interviews}">
+        <td th:text="${iv.id}">1</td>
+        <td th:text="${iv.candidateId}">1</td>
+        <td th:text="${iv.interviewDate}">2024-01-01T10:00</td>
+        <td th:text="${iv.interviewLink}">Lien</td>
+        <td th:text="${iv.interviewer}">Nom Interviewer</td>
+    </tr>
+    </tbody>
+</table>
+<a href="/">Retour Accueil</a>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${application.id} != null ? 'Modifier Application' : 'Créer Application'">Formulaire d'Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${application.id} != null ? 'Modifier Application' : 'Créer Application'">Formulaire d'Application</h1>
+
+    <!-- Messages d'Erreur Générales -->
+    <div th:if="${error}">
+        <div class="alert alert-danger" th:text="${error}"></div>
+    </div>
+
+    <form th:action="${application.id} != null ? @{'/applications/update/' + ${application.id}} : @{/applications}"
+          th:object="${application}"
+          method="post"
+          enctype="multipart/form-data"> <!-- Ajout de enctype pour le téléchargement de fichiers -->
+
+        <div class="form-group">
+            <label for="candidateName">Nom du Candidat</label>
+            <input type="text" id="candidateName" name="candidateName" th:field="*{candidateName}" class="form-control" required />
+            <div th:if="${#fields.hasErrors('candidateName')}" class="text-danger" th:errors="*{candidateName}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="positionApplied">Poste Appliqué</label>
+            <input type="text" id="positionApplied" name="positionApplied" th:field="*{positionApplied}" class="form-control" required />
+            <div th:if="${#fields.hasErrors('positionApplied')}" class="text-danger" th:errors="*{positionApplied}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Expérience (années)</label>
+            <input type="number" id="experience" name="experience" th:field="*{experience}" class="form-control" min="0" required />
+            <div th:if="${#fields.hasErrors('experience')}" class="text-danger" th:errors="*{experience}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="educationLevel">Niveau d'Éducation</label>
+            <input type="text" id="educationLevel" name="educationLevel" th:field="*{educationLevel}" class="form-control" required />
+            <div th:if="${#fields.hasErrors('educationLevel')}" class="text-danger" th:errors="*{educationLevel}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Statut</label>
+            <select id="status" name="status" th:field="*{status}" class="form-control" required>
+                <option value="">Sélectionnez le statut</option>
+                <option value="ADMIS">Admis</option>
+                <option value="NON_ADMIS">Non Admis</option>
+                <option value="EN_ATTENTE">En Attente</option>
+            </select>
+            <div th:if="${#fields.hasErrors('status')}" class="text-danger" th:errors="*{status}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="applicationDate">Date de Candidature</label>
+            <input type="date" id="applicationDate" name="applicationDate" th:field="*{applicationDate}" class="form-control" required />
+            <div th:if="${#fields.hasErrors('applicationDate')}" class="text-danger" th:errors="*{applicationDate}"></div>
+        </div>
+
+        <!-- Champ pour le CV -->
+        <div class="form-group">
+            <label for="cvFile">Télécharger le CV</label>
+            <input type="file" id="cvFile" name="cvFile" th:field="*{cvFile}" class="form-control-file" required />
+            <div th:if="${#fields.hasErrors('cvFile')}" class="text-danger" th:errors="*{cvFile}"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Soumettre</button>
+        <a href="/applications" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+
+<!-- Intégrer Bootstrap JS via CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

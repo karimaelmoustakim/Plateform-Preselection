@@ -2,22 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Service_Authentification" />
+        <module name="display-service" />
         <module name="server_eureka" />
         <module name="Application" />
         <module name="gateway-service" />
       </profile>
-      <profile name="Annotation profile for RH" enabled="true">
+      <profile name="Annotation profile for interviewers" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="interviewers" />
         <module name="RH" />
       </profile>
     </annotationProcessing>
@@ -27,7 +30,9 @@
       <module name="Application" options="-parameters" />
       <module name="RH" options="-parameters" />
       <module name="Service_Authentification" options="-parameters" />
+      <module name="display-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
+      <module name="interviewers" options="-parameters" />
       <module name="server_eureka" options="-parameters" />
     </option>
   </component>

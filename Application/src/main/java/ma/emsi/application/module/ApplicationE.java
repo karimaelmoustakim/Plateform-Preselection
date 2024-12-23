@@ -24,6 +24,10 @@ public class ApplicationE {
     @Column(name = "candidate_id", nullable = false)
     private Long candidateId; // Lien avec l'utilisateur
 
+    @Column(name = "candidate_name")
+    //@NotEmpty(message = "Le nom du candidat est obligatoire.")
+    private String candidateName= "Unknown"; // Nom du candidat
+
     @Column(name = "position_applied", nullable = false)
     @NotEmpty(message = "Le poste souhaité est obligatoire.")
     private String positionApplied; // Poste souhaité
@@ -49,10 +53,17 @@ public class ApplicationE {
 
     // Champs ajoutés pour l'expérience pertinente (variables indicatrices)
     @Column(name = "relevent_experience", nullable = false)
-    private boolean releventExperience; // true = a de l'expérience pertinente, false = non
+    private boolean relevent_experience; // true = a de l'expérience pertinente, false = non
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private ApplicationStatus status = ApplicationStatus.EN_ATTENTE; // Par défaut : "En attente"
 
+    public boolean isRelevent_experience() {
+        return relevent_experience;
+    }
+
+    public void setRelevent_experience(boolean relevent_experience) {
+        this.relevent_experience = relevent_experience;
+    }
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${interviewer.id != null} ? 'Modifier Interviewer' : 'Créer Interviewer'">Formulaire Interviewer</title>
+</head>
+<body>
+<h1 th:text="${interviewer.id != null} ? 'Modifier Interviewer' : 'Créer Interviewer'">Formulaire Interviewer</h1>
+
+<form th:action="${interviewer.id != null} ? '/interviewers/update/' + ${interviewer.id} : '/interviewers'}" th:object="${interviewer}" method="post">
+    <div>
+        <label for="name">Nom:</label>
+        <input type="text" th:field="*{name}" required/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" th:field="*{email}" required/>
+    </div>
+    <div>
+        <label for="specialty">Spécialité:</label>
+        <input type="text" th:field="*{specialty}"/>
+    </div>
+    <div>
+        <label for="isAvailable">Disponible:</label>
+        <input type="checkbox" th:field="*{isAvailable}"/>
+    </div>
+    <div>
+        <button type="submit">Soumettre</button>
+        <a href="/interviewers">Retour</a>
+    </div>
+</form>
+
+<div th:if="${error}">
+    <p th:text="${error}" style="color: red;"></p>
+</div>
+</body>
+</html>

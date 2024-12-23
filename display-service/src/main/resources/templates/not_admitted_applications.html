@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Candidatures Non Admis</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Candidatures Non Admis</h1>
+
+<div th:if="${error}">
+    <p th:text="${error}" style="color: red;"></p>
+</div>
+
+<div th:if="${notAdmittedApps}">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom du Candidat</th>
+            <th>Poste Appliqué</th>
+            <th>Expérience (années)</th>
+            <th>Niveau d'Éducation</th>
+            <th>Status</th>
+            <th>Date de Candidature</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="app : ${notAdmittedApps}">
+            <td th:text="${app.id}">2</td>
+            <td th:text="${app.candidateName}">Jane Smith</td>
+            <td th:text="${app.positionApplied}">Designer</td>
+            <td th:text="${app.experience}">3</td>
+            <td th:text="${app.educationLevel}">Licence</td>
+            <td th:text="${app.status}">Non Admis</td>
+            <td th:text="${app.applicationDate}">2024-02-15</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="/">Retour à l'Accueil</a>
+</body>
+</html>

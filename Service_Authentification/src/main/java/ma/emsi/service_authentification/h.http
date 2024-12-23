@@ -1,0 +1,13 @@
+### Tester l'authentification avec login
+
+
+
+###
+
+### Tester l'accès aux candidatures de l'utilisateur authentifié
+GET http://localhost:8080/api/applications/my-applications
+Cookie: SESSIONID=2
+
+
+
+

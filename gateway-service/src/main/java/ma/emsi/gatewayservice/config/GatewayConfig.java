@@ -19,6 +19,12 @@ public class GatewayConfig {
                         .uri("http://localhost:8081/Service_Authentification")) // Microservice d'authentification
                 .route(r -> r.path("/api/applications/**")
                         .uri("http://localhost:8082/Application"))
+                .route(r -> r.path("/api/interviewers/**")
+                        .uri("http://localhost:8086/interviewers"))
+                .route(r -> r.path("/api/rh/interviews/**")
+                        .uri("http://localhost:8083/RH"))
+                .route(r -> r.path("/api/rh/**")
+                        .uri("http://localhost:8083/RH"))
 
                 .build();
     }

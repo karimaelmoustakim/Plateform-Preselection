@@ -1,17 +1,46 @@
 package ma.emsi.rh.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ApplicationDTO {
 
+    @JsonProperty("id")
     private Long id;
-    private Long candidateId;
-    private String positionApplied;
-    private String cvUrl;
-    private String coverLetter;
-    private int experience;
-    private String educationLevel;
-    private boolean releventExperience;
-    private String status; // Admis, Non Admis, En Attente
 
+    @JsonProperty("candidateId")
+    private Long candidateId;
+
+    @JsonProperty("positionApplied")
+    private String positionApplied;
+
+    @JsonProperty("cvUrl")
+    private String cvUrl;
+
+    @JsonProperty("coverLetter")
+    private String coverLetter;
+
+    @JsonProperty("experience")
+    private int experience;
+
+    @JsonProperty("education_level")
+    private String education_level;
+
+    @JsonProperty("relevent_experience")
+    private boolean relevent_experience;
+
+    @JsonProperty("status")
+    private String status;
+
+    @JsonProperty("prediction")
+    private String prediction;
+
+    public String getPrediction() {
+        return prediction;
+    }
+
+    public void setPrediction(String prediction) {
+        this.prediction = prediction;
+    }
     // Getters et Setters
     public Long getId() {
         return id;
@@ -62,19 +91,19 @@ public class ApplicationDTO {
     }
 
     public String getEducationLevel() {
-        return educationLevel;
+        return education_level;
     }
 
     public void setEducationLevel(String educationLevel) {
-        this.educationLevel = educationLevel;
+        this.education_level = educationLevel;
     }
 
     public boolean isReleventExperience() {
-        return releventExperience;
+        return relevent_experience;
     }
 
     public void setReleventExperience(boolean releventExperience) {
-        this.releventExperience = releventExperience;
+        this.relevent_experience = releventExperience;
     }
 
     public String getStatus() {
@@ -84,4 +113,22 @@ public class ApplicationDTO {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "ApplicationDTO{" +
+                "id=" + id +
+                ", candidateId=" + candidateId +
+                ", positionApplied='" + positionApplied + '\'' +
+                ", cvUrl='" + cvUrl + '\'' +
+                ", coverLetter='" + coverLetter + '\'' +
+                ", experience=" + experience +
+                ", educationLevel='" + education_level + '\'' +
+                ", releventExperience=" + relevent_experience +
+                ", status='" + status + '\'' +
+                ", prediction='" + prediction + '\'' +
+                '}';
+    }
+
+
 }

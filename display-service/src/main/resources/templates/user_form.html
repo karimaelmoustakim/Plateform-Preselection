@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${user.id != null} ? 'Modifier Utilisateur' : 'Créer Utilisateur'">Formulaire Utilisateur</title>
+</head>
+<body>
+<h1 th:text="${user.id != null} ? 'Modifier Utilisateur' : 'Créer Utilisateur'">Formulaire Utilisateur</h1>
+
+<form th:action="${user.id != null} ? '/auth/update/' + ${user.id} : '/auth'}" th:object="${user}" method="post">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" th:field="*{email}" required/>
+  </div>
+  <div>
+    <label for="firstName">Prénom:</label>
+    <input type="text" th:field="*{firstName}"/>
+  </div>
+  <div>
+    <label for="lastName">Nom:</label>
+    <input type="text" th:field="*{lastName}"/>
+  </div>
+  <div>
+    <label for="phoneNumber">Numéro de Téléphone:</label>
+    <input type="text" th:field="*{phoneNumber}"/>
+  </div>
+  <div>
+    <label for="age">Âge:</label>
+    <input type="number" th:field="*{age}" min="0"/>
+  </div>
+  <div>
+    <label for="role">Rôle:</label>
+    <input type="text" th:field="*{role}" required/>
+  </div>
+  <div>
+    <button type="submit">Soumettre</button>
+    <a href="/auth">Retour</a>
+  </div>
+</form>
+
+<div th:if="${error}">
+  <p th:text="${error}" style="color: red;"></p>
+</div>
+</body>
+</html>

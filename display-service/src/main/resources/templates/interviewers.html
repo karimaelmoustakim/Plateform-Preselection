@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Interviewers</title>
+</head>
+<body>
+<h1>Liste des Interviewers</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Spécialité</th>
+        <th>Disponible?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="i : ${interviewers}">
+        <td th:text="${i.id}">1</td>
+        <td th:text="${i.name}">Nom</td>
+        <td th:text="${i.email}">Email</td>
+        <td th:text="${i.specialty}">Spécialité</td>
+        <td th:text="${i.available}">true/false</td>
+    </tr>
+    </tbody>
+</table>
+<a href="/">Retour Accueil</a>
+</body>
+</html>

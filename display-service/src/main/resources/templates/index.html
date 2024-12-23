@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accueil</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Bienvenue dans le Service de Display</h1>
+
+<ul>
+    <li><a th:href="@{/applications}">Gérer les Candidatures</a></li>
+    <li><a th:href="@{/interviewers}">Gérer les Interviewers</a></li>
+    <li><a th:href="@{/rh}">Gérer les Interviews (RH)</a></li>
+    <li><a th:href="@{/auth}">Gérer les Utilisateurs</a></li>
+    <li><a th:href="@{/applications/admitted}">Voir les Candidatures Admis</a></li>
+    <li><a th:href="@{/applications/not-admitted}">Voir les Candidatures Non Admis</a></li>
+    <li><a th:href="@{/applications/predict}">Déclencher les Prédictions</a></li>
+</ul>
+</body>
+</html>

@@ -13,5 +13,8 @@ public interface ApplicationRepository extends JpaRepository<ApplicationE, Long>
     // Récupérer toutes les candidatures pour un candidat spécifique
     List<ApplicationE> findByCandidateId(Long candidateId);
     List<ApplicationE> findByStatus(ApplicationStatus status);
+    long countByStatus(ApplicationStatus status);
+    List<ApplicationE> findAllByOrderByApplicationDateDesc();
+
 
 }

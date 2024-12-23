@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/Application/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RH/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Service_Authentification/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/display-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/interviewers/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server_eureka/src/main/java" charset="UTF-8" />
   </component>
 </project>
